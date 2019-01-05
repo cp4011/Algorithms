@@ -1,2 +1,2 @@
 # Algorithm
-the questions of Algorithm
+the questions of all kinds of Algorithms
