@@ -1,1 +1,0 @@
-This folder contains the code used to create the plots in the examples.
