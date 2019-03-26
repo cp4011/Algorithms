@@ -11,6 +11,8 @@ Sample Input 1
 Sample Output 1
 6
 '''
+
+
 def fun(array, num):
     n = len(array)
     i = 0
