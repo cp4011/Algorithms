@@ -13,7 +13,7 @@ Sample Output 1
 6
 '''
 
-##提交版
+# 提交版
 def maxSubMatrix(matrix):
     max = 0
     sum = 0

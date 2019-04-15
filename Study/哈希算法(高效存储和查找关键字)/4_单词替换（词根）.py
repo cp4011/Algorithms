@@ -50,7 +50,7 @@ def replaceWords(dict, sentence):
 #     for item in dict:                 # 遍历每一个词根
 #         for i in range(len(s)):       # 遍历句子中的每个单词
 #             n = len(item)
-#             if item == s[i][:n]:      # 判断第i个单词s[i]的钱n位和该词根是否相等
+#             if item == s[i][:n]:      # 判断第i个单词s[i]的前n位和该词根是否相等
 #                 s[i] = item           # 词根相等的话，将该单词赋值为该词根
 #     return " ".join(s)                # 打印
 

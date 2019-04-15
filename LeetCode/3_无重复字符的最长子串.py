@@ -15,8 +15,30 @@
 """
 
 
+# 当一个子串第一个出现重复的时候，从第二个开始再计算个数，可以使用字符串的切片操作
+def lengthOfLongestSubstring(s):
+    max_num = 0
+    num = 0
+    st = ""
+
+    for i in s:
+        if i not in st:
+            st += i
+            num += 1
+        else:
+            if num > max_num:
+                max_num = num
+            index = st.index(i)
+            st = st[index + 1:] + i
+            num = len(st)
+    if num > max_num:               # 注意考虑最后不重复的子串
+        max_num = num
+    return max_num
+print(lengthOfLongestSubstring("aabaab!bb"))
+
+
 # 字典
-def lengthOfLongestSubstring(self, s):
+def lengthOfLongestSubstring1(s):
     dic, res, start, = {}, 0, 0
     for i, ch in enumerate(s):
         if ch in dic:
@@ -24,6 +46,9 @@ def lengthOfLongestSubstring(self, s):
             start = max(start, dic[ch]+1)       # here should be careful, like "abba"
         dic[ch] = i
     return max(res, len(s)-start)               # return should consider the last non-repeated substring
+
+
+# print(lengthOfLongestSubstring1("abcabcbb"))
 
 
 """

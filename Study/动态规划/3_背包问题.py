@@ -49,6 +49,7 @@ def bag(n, c, w, v):
                 value[i][j] = max(value[i - 1][j], value[i - 1][j - w[i - 1]] + v[i - 1])
     for x in value:
         print(x)
+    print('最大价值为:', value[n][c])
     return value
 
 
