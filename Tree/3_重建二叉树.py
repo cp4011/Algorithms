@@ -12,11 +12,11 @@ class TreeNode:
 
 class Solution:
     def reConstructBinaryTree(self, pre, tin):          # 返回构造的TreeNode根节点
-        if len(pre) == 0:
+        if len(pre) == 0:                               # 递归结束条件
             return None
-        root = TreeNode(pre[0])
+        root = TreeNode(pre[0])                         # 根root
         pos = tin.index(pre[0])
         root.left = self.reConstructBinaryTree(pre[1:pos+1], tin[0:pos])        # 左子树  【注意在class中要有self】
         root.right = self.reConstructBinaryTree(pre[pos+1:], tin[pos+1:])       # 右子树
-        return root
+        return root                                                             # 返回
 

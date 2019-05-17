@@ -26,7 +26,7 @@ class Tree(object):
                 cur = queue.pop(0)          # 弹出队列的第一个元素
                 if cur.lchild == None:
                     cur.lchild = node
-                    return
+                    return                  # 注意要return
                 elif cur.rchild == None:
                     cur.rchild = node
                     return
@@ -52,6 +52,15 @@ class Tree(object):
         self.inorder(root.lchild)
         print(root.elem)
         self.inorder(root.rchild)
+
+    def inorder(self, root, buf):
+        if not root:
+            return None
+        self.inorder(root.left, buf)
+        buf.append(root)
+        self.inorder(root.right, buf)
+        return buf
+    # 调用时：buff = [];    inorder(root,buff)返回的就是存储为中序遍历的结果列表
 
     def postorder(self, root):
         """递归实现后续遍历"""

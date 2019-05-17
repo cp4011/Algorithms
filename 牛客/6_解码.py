@@ -20,50 +20,26 @@
 192种可能的译码结果
 """
 
+'''状态转移方程是 dp[n] = dp[n - 1] + dp[n - 2], 注意一下0和超过26的约束'''
 
-s=input()
-dp=[0]*len(s)
-if s[0]!='0': dp[0]=1
+
+s = input()
+dp = [0]*len(s)
+if s[0] != '0':
+    dp[0] = 1
 for i in range(1, len(s)):
     if s[i] == '0':
-        if s[i-1] == '1' or s[i-1]=='2':
-            dp[i]=dp[i-2] if i>=2 else 1
-    elif s[i]<='6':
-        dp[i]=dp[i-1]
-        if s[i-1]=='1' or s[i-1]=='2': dp[i]+=(dp[i-2] if i>=2 else 1)
+        if s[i-1] == '1' or s[i-1] == '2':
+            dp[i] = dp[i-2] if i >= 2 else 1
+    elif s[i] <= '6':
+        dp[i] = dp[i-1]
+        if s[i-1] == '1' or s[i-1] == '2':
+            dp[i] += (dp[i-2] if i >= 2 else 1)
     else:
-        dp[i]=dp[i-1]
-        if s[i-1]=='1': dp[i]+=(dp[i-2] if i>=2 else 1)
+        dp[i] = dp[i-1]
+        if s[i-1] == '1':
+            dp[i] += (dp[i-2] if i >= 2 else 1)
 print(dp[-1])
 
 
-a=input()
-memo={}
-def main(a):            # 返回a有多少种编码结果
-    if a in memo:
-        return memo[a]
-    if a=='0':
-        return 0
-    if len(a)==0:
-        return 1
-    if len(a)==1:
-        return 1
-    tmp=a[:2]
-    hou=a[2:]
-    if int(tmp)==10:
-        return main(hou)
-    if int(tmp)==20:
-        return main(hou)
-    if int(tmp)<27:
-        case1=main(a[1:])
-        case2=main(a[2:])
-        memo[a]=case1+case2
-        return memo[a]
-    else:
-        case1=main(a[1:])
-        memo[a]=case1
-        return memo[a]
-if a=='0':
-    print(0)
-else:
-    print(main(a))
+

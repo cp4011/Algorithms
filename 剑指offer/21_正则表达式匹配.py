@@ -25,8 +25,8 @@
     之后再写代码就很简单了。
 '''
 
+
 class Solution:
-    # s, pattern都是字符串
     def match(self, s, pattern):
         if (len(s) == 0 and len(pattern) == 0):
             return True

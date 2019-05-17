@@ -31,7 +31,7 @@ length = len(s)
 num = length
 count = 0
 gcount = 0
-for i in range(length):    # 在当前位置为R时有可能两种情况,一种是吧这个位置编程G,另一种是吧前面的G全部变成R.时间复杂度O(n),空间复杂度O(1)
+for i in range(length):    # 在当前位置为R时有可能两种情况,一种是把这个位置编成G,另一种是吧前面的G全部变成R.时间复杂度O(n),空间复杂度O(1)
     if s[i] == "G":
         gcount += 1
     else:

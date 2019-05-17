@@ -34,8 +34,8 @@ q = list(map(int, input().split()))
 
 num_list = []
 for i in range(1, n + 1):
-    a_list = a[0:i]
-    num_list.append(sum(a_list))
+    num_list.append(sum(a[0:i]))
+
 
 # 超时
 res_list = []
