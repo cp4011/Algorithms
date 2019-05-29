@@ -52,8 +52,6 @@ def postOrder(root):
             root = stack.pop()
             root = root.left
     return res[::-1]
-
-
 # 【层序遍历】用到队列，当左孩子存在，则入队，右孩子存在，入队，每次取队首结点。
 def levelOrder(root):
     if not root:

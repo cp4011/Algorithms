@@ -23,7 +23,7 @@ for (int i = 0; i < len; i++) {
 
 
 # 快慢指针：慢指针count，快指针i
-class Solution:
+class Solution:             # 排序数组，原地删除重复出现的元素，使得每个元素只出现一次
     def removeDuplicates(self, nums):
         if not nums:                    # 注意nums可能为[]
             return 0

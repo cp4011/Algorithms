@@ -9,6 +9,7 @@
      由于返回类型是整数，小数部分将被舍去。
 """
 
+
 class Solution:
     def mySqrt(self, x):
         l, r = 0, x
@@ -19,4 +20,4 @@ class Solution:
             elif middle * middle > x:
                 r = middle
             else:
-                l = middle + 1
+                l = middle + 1   # 注意要 + 1：考虑输入为1时，left要移动【因为此时(middle+1) * (middle+1)也小于x，可以+1】
