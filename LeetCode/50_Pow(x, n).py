@@ -13,10 +13,8 @@
 """
 
 
-# return x ** n
-class Solution:
-    # 迭代
-    def myPow(self, x, n):
+class Solution:                 # return x ** n
+    def myPow(self, x, n):      # 迭代
         if n < 0:
             x = 1 / x
             n = -n
@@ -28,8 +26,7 @@ class Solution:
             n >>= 1     # 【右移一位 相当于 地板除以2】 //2 , 【注意不是 >>=1 是1，右移1位】
         return pow
 
-    # 循环
-    def myPow1(self, x, n):
+    def myPow1(self, x, n):     # 递归
         if not n:                               # 注意是对 n
             return 1
         if n < 0:

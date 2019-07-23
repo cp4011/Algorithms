@@ -69,8 +69,7 @@ def setZeroes(matrix):
 这里存在的问题是，第一行和第一列本来存在的零和后来补上的零会混淆，原来的零具备一个功能是把第一行和第一列置零，所以在一开始
 的时候，需要遍历第一行和第一列，确定是否有零。然后在最后对第一行和第一列进行置零操作。'''
 def setZeroes1(matrix):
-    if not matrix or not matrix[0]:
-        return
+    if not matrix or not matrix[0]: return
     m, n = len(matrix), len(matrix[0])
     first_row_has_zero = not all(matrix[0])     # 第一行是否有0
     first_col_has_zero = False

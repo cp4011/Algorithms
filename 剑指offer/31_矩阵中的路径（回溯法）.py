@@ -28,9 +28,8 @@
 '''
 
 
-# 回溯法【遍历矩阵中的每一个位置】
 # 【matrix[i * cols + j]】  若处理成矩阵：x = [list(matrix[cols*i:cols*i+cols]) for i in range(rows)]     if matrix[i][j] == p[0]
-class Solution:
+class Solution:             # 回溯法【遍历矩阵中的每一个位置】
     def hasPath(self, matrix, rows, cols, path):
         if not matrix:
             return False

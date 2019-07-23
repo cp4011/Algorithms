@@ -1,6 +1,5 @@
 """请实现两个函数，分别用来序列化和反序列化二叉树(用什么方法无所谓，关键是输入一棵树，序列化为字符串，然后将字符串反序列化
 还能还原为原来的那棵树。)"""
-
 '''     1. 对于序列化：使用前序遍历，递归的将二叉树的值转化为字符，并且在每次二叉树的结点不为空时，在转化val所得的字符
 之后添加一个' ， '作为分割。对于空节点则以 '#' 代替。
         2. 对于反序列化：按照前序顺序，递归的使用字符串中的字符创建一个二叉树
@@ -21,7 +20,6 @@ class Solution:
         return str(root.val) + ',' + self.Serialize(root.left) + self.Serialize(root.right)    # 注意left和right中间没有 + ','了
 
     def Deserialize(self, s):
-
         def help(l):
             if l[0] == '#':
                 return
@@ -31,7 +29,6 @@ class Solution:
             if l.pop(0):
                 root.right = help(l)
             return root
-
         l = s.split(',')
         return help(l)
 

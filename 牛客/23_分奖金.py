@@ -31,7 +31,7 @@ for i in range(100):
     else:
         p_hua += p_current*probs[i % len(probs)]
         p_current *= (1 - probs[i % len(probs)])
-s = str(round(p_ming, 4))                       # round( x [, n]  ) x四舍五入，默认值为 0。 x -- 数字表达式。n-表示从小数点位数
+s = str(round(p_ming, 4))               # round( x [, n]  ) x四舍五入，默认值为 0。 x -- 数字表达式。n-表示从小数点位数
 s = s + '0'*(4-len(s.split('.')[1]))
 print(s)
 

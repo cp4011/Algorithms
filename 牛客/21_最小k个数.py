@@ -6,13 +6,15 @@
     *如果用冒泡排序，时间复杂度为O(n*k)
 '''
 
-# 牛客网支持  小顶堆heapq.heapify(list)  heapq.heappush(list,2)  heapq.heappop(list)弹出最小值 heapq.heapreplace(list,99)  heapq.nlargest(3,list)
+# 小顶堆heapq.heapify(list)
+# heapq.heappush(list,2)  heapq.heappop(list)弹出最小值 heapq.heapreplace(list,99)  heapq.nlargest(3,list)
 import heapq
 class Solution:
     def GetLeastNumbers_Solution(self, k, tinput):
         if k > len(tinput):
             return []
         return heapq.nsmallest(k, tinput)
+
 
 # 直接排序
 def GetLeastNumbers_Solution(input, k):

@@ -22,18 +22,18 @@ class Solution:
         import heapq                    # 堆中的元素可以为元组，可对带权值的元素进行排序。
         first = ListNode(0)
         p = first
-        head = []                       # 构建小顶堆
+        heap1 = []                       # 构建小顶堆
         for i in range(len(lists)):
             if lists[i]:
-                heapq.heappush(head, (lists[i].val, i))     # 将个链表中的头指针的 值和所在链表的顺序i 作为元组压入堆中
+                heapq.heappush(heap1, (lists[i].val, i))     # 将个链表中的头指针的 值和所在链表的顺序i 作为元组压入堆中
                 lists[i] = lists[i].next                    # 各链表指向各自链表的第二个节点，一次是4 3 6
         # head堆中目前有 (1,1) (1,2) (2,2)
-        while head:                     # 遍历小顶堆（弹出的栈顶元素，一定是当前值最小的和链表最靠前的）
-            val, idx = heapq.heappop(head)  # 【错误】 head.pop() 注意是heapq.heappop(堆)
+        while heap1:                     # 遍历小顶堆（弹出的栈顶元素，一定是当前值最小的和链表最靠前的）
+            val, idx = heapq.heappop(heap1)  # 【错误】 head.pop() 注意是heapq.heappop(堆)
             p.next = ListNode(val)      # 改变指针指向
             p = p.next                  # 指针后移
             if lists[idx]:
-                heapq.heappush(head, (lists[idx].val, idx))     # 将该链表当前以及遍历val的节点下一个节点的元组压入堆中
+                heapq.heappush(heap1, (lists[idx].val, idx))     # 将该链表当前以及遍历val的节点下一个节点的元组压入堆中
                 lists[idx] = lists[idx].next                    # 该链表指针后移
         return first.next
 

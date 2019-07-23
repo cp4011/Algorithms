@@ -26,12 +26,10 @@
 
 n, k = list(map(int, input().split()))
 arr = list(map(int, input().split()))
-
 # index_arr = [[1, 5], [2, 8], [3, 5]] 其中每个元素表示：[第i堆，对应塔数]
 index_arr = [list(i) for i in zip(range(1, len(arr)+1), arr)]               # 【zip()函数】或者用列表枚举
 # index_arr = [[index, arr] for index, arr in enumerate(arr, 1)]            # enumerate(sequence, [start=0])
 # 将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中
-
 sorted_arr = sorted(index_arr, key=lambda x: x[1], reverse=True)
 res = []
 count = 0
@@ -44,7 +42,7 @@ while k > count and sorted_arr[0][1] > sorted_arr[-1][1]:
     sorted_arr = sorted(sorted_arr, key=lambda x: x[1], reverse=True)
 
 s = sorted_arr[0][1] - sorted_arr[-1][1]
-print(s, k)
+print(s, count)
 for i in res:
     print(i[0], i[1])
 

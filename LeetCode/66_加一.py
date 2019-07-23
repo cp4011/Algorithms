@@ -18,7 +18,7 @@ class Solution:
         for i in digits:
             a += str(i)
         a = int(a)
-        # t = int(''.join(map(str,digits)))
+        # t = int(''.join(map(str, digits)))
 
         a += 1
         b = [int(i) for i in str(a)]

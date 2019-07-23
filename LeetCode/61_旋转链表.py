@@ -22,8 +22,7 @@ class ListNode:
         self.next = None
 
 
-# 快慢双指针
-class Solution:
+class Solution:             # 快慢双指针
     def rotateRight(self, head, k):    # 输入: 1->2->3->4->5->NULL, k = 2    输出: 4->5->1->2->3->NULL
         if not head or not head.next or k == 0:
             return head

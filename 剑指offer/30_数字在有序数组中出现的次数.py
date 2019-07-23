@@ -3,8 +3,8 @@
 '''查找有序数组：二分查找'''
 
 
-class Solution:
-    def GetNumberOfK(self, data, k):
+class Solution:                 # 统计一个数字在排序数组中出现的次数
+    def GetNumberOfK(self, data, k):                        # 查找有序数组：二分查找
         if not data or k < data[0] or k > data[-1]:         # 注意边界
             return 0
         index = -1

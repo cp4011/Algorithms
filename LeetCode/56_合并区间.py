@@ -11,6 +11,7 @@
 '''先按首位置进行排序;接下来,如何判断两个区间是否重叠呢?比如a = [1,4],b = [2,3]
 当a[1] >= b[0]说明两个区间有重叠.左边位置一定是a[0],而右边位置是max(a[1], b[1]),所以,我们就能找出整个区间为:[1,4]'''
 
+
 class Solution:
     def merge(self, intervals):
         intervals = sorted(intervals)       # 排序

@@ -20,7 +20,7 @@
 
 n = int(input())
 arr = [1, 2, 5, 10, 20, 50, 100]
-type_count = 0
+type_count = 0  # 不同的面值种类尽可能多;在面值种类尽可能多的情况下，让选择的硬币总数目尽可能多
 for i in arr:                   # 从小到大遍历
     if n >= i:
         n -= i

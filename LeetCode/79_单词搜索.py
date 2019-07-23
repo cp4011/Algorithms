@@ -27,7 +27,7 @@ class Solution:
     def dfs(self, board, i, j, word):   # 从(i,j)开始查找，返回是否找到该单词的布尔值
         if len(word) == 0:              # 该单词的所有字母都已经被按照字母的顺序给找到了
             return True
-        if i<0 or i>=len(board) or j<0 or j>=len(board[0]) or word[0]!=board[i][j]:
+        if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]) or word[0] != board[i][j]:
             return False
         tmp = board[i][j]               # 第一个字母都找到了，继续查找单词剩余的部分
         board[i][j] = "#"               # 修改元素，避免被重复访问

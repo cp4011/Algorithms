@@ -12,7 +12,6 @@ class TreeNode:
 
 class Solution:
     def isSymmetrical(self, pRoot):
-
         def is_same(p1, p2):                      # 定义函数
             if not p1 and not p2:                           # 匹配完毕（已经匹配到叶子节点了，且前面的节点都完全匹配）
                 return True

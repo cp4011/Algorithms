@@ -100,12 +100,12 @@ class Solution1:
 
 
 class Solution2:
-    def InversePairs(self, data):
+    def InversePairs(self, data):           # 题目保证输入的数组中没有的相同的数字
         count = 0
         copy = data[:]
         copy.sort()
 
-        for i in range(len(copy)):
+        for i in range(len(copy)):          # 遍历data数组中：当前最小元素copy[i] 其下标索引之前的元素都比它大
             count += data.index(copy[i])
             data.remove(copy[i])
 

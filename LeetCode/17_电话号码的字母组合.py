@@ -14,7 +14,7 @@ class Solution:
         dict1 = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
         res = ['']
         for s in digits:
-            res = [i+c for c in dict1[s] for i in res]
+            res = [i+c for c in dict1[s] for i in res]      # res在每一轮会被重置为字符串长度加1的字符串列表（清楚掉以前的字符串）
         return res
 
     # 回溯法

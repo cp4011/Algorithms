@@ -33,8 +33,8 @@ class Solution:
         while i < n:                # q指针 移动n次
             q = q.next
             i += 1
-        while q:
+        while q:                    # 最后 p指向的就是倒数n+1个节点
             q = q.next
             p = p.next
-        p.next = p.next.next
+        p.next = p.next.next        # 将倒数第n个节点的前一个节点(倒数n+1节点) 指向倒数第n个节点的下一个节点
         return first.next

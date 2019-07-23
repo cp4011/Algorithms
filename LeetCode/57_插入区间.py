@@ -11,6 +11,8 @@
 2. 右边,当intervals[i][0] > newInterval[1]说明newInterval没有和任何区间重合,如intervals = [[1,3],[6,9]], newInterval = [4,5],
 直接插入即可.接下来找右边重合区域,当while i < n and newInterval[1] >= intervals[i][0]说明有重叠部分,记录左边最大值!
 最后把数组拼接一下即可'''
+
+
 class Solution:
     def insert(self, intervals, newInterval):
         i, n = 0, len(intervals)

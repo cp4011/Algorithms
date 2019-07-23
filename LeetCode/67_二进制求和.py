@@ -13,7 +13,7 @@ class Solution:
         """        :type a: str        :type b: str        :rtype: str        """
         return bin(int(a, 2) + int(b, 2))[2:]
 
-    """ # int(x, base=10)  x--字符串或数字, 如果是带参数base的话，12要以字符串的形式进行输入    返回整型数据。
+    """ # int(x, base=10)  x--字符串或数字, int(3.6): 返回整型数据。
         # int('12',16) 18       # 如果是带参数base的话，12要以字符串的形式进行输入，12 为 16进制，转换为10进制"""
 
 

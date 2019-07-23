@@ -15,9 +15,9 @@ class Solution:
         l, r = 0, x
         while l <= r:
             middle = (r + l) // 2
-            if middle * middle <= x and (middle + 1) * (middle + 1) > x:
+            if middle * middle <= x < (middle + 1) * (middle + 1):
                 return middle
             elif middle * middle > x:
-                r = middle
+                r = middle - 1
             else:
                 l = middle + 1   # 注意要 + 1：考虑输入为1时，left要移动【因为此时(middle+1) * (middle+1)也小于x，可以+1】
