@@ -19,7 +19,7 @@ dict.popitem()
 '''
 
 
-class Solution(object):
+class Solution(object):     # 除了某个元素只出现一次以外，其余每个元素均出现两次
     def singleNumber(self, nums):       # 位操作法：时间复杂度：O(n)，空间复杂度：O(1)
         """
         如果我们对 0 和二进制位做 异或XOR 运算，得到的仍然是这个二进制位:     a⊕0=a

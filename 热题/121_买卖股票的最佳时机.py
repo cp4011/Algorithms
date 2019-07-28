@@ -15,10 +15,6 @@
 
 class Solution(object):
     def maxProfit(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: int
-        """
         if not prices or len(prices) == 1:      # 注意边界条件
             return 0
         min_num, res = prices[0], 0

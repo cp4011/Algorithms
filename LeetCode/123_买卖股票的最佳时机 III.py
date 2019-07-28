@@ -29,7 +29,7 @@ def maxProfit(prices):            # 最多只能两次买卖股票（两次遍�
     total_max = 0
     max_profit = 0
     current_max = prices[-1]
-    for i in range(len(prices) - 1, -1, -1):                # 反向遍历（第二次买卖）
+    for i in range(len(prices) - 1, -1, -1):                # 反向遍历（第二次买卖）【注意 第一次卖出的天数和第二次买入的天数i不会重复】
         current_max = max(current_max, prices[i])           # 记录反向遍历到的最大值（第二次卖出的价格）
         max_profit = max(max_profit, current_max - prices[i])   # 当前价格 减去已经遍历到的最大卖出价格（第二次买卖）
         total_max = max(total_max, max_profit + profits[i])     # 遍历：取两次买卖相加的最大值

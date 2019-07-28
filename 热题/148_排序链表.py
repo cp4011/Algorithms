@@ -1,4 +1,4 @@
-"""在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。
+"""在 O(nlogn) 时间复杂度和常数级空间复杂度下，对链表进行排序。
 示例 1:
 输入: 4->2->1->3
 输出: 1->2->3->4
@@ -14,7 +14,7 @@ class ListNode:
         self.next = None
 
 
-class Solution:         # 归并
+class Solution:         # 归并（在 O(nlogn) 时间复杂度和常数级空间复杂度下，对链表进行排序。）
     def sortList(self, head: ListNode) -> ListNode:
         if not head or not head.next: return head   # 结束（递归切分结束）.
         # 切分
@@ -32,9 +32,7 @@ class Solution:         # 归并
         h.next = left if left else right            # 左右其中一个为空，另一个还有节点时
         return res.next
 
-
-class Solution:
-    def sortList(self, head: ListNode) -> ListNode:
+    def sortList1(self, head: ListNode) -> ListNode:
         if not (head and head.next): return head
         pre, slow, fast = None, head, head
         while fast and fast.next: pre, slow, fast = slow, slow.next, fast.next.next

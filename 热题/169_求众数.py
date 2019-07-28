@@ -8,13 +8,14 @@
 输出: 2
 """
 
+
 class Solution:
     def majorityElement(self, nums):    # 时间复杂度：O(nlgn)
         nums.sort()                     # 排序法
         return nums[len(nums)//2]
 
-class Solution:
-    def majorityElement(self, nums):
+    def majorityElement1(self, nums):
         import collections
         counts = collections.Counter(nums)  # 哈希表法
-        return max(counts.keys(), key=counts.get)   # key关键字，对每个tlist元素先使用key指定的function来处理，然后再比较、返回预期tlist中的数
+        # key关键字，对每个tlist元素先使用key指定的function来处理，然后再比较、返回预期tlist中的数
+        return max(counts.keys(), key=counts.get)

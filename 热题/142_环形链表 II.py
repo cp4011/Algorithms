@@ -16,19 +16,33 @@
 进阶： 你是否可以不用额外空间解决此题？
 """
 
-"""分配一个 Set 去保存所有的列表节点。我们逐一遍历列表，检查当前节点是否出现过，如果节点已经出现过，那么一定形成了环且它是环的入口"""
-
 
 class Solution(object):
-    def detectCycle(self, head):
-        visited = set()
+    def detectCycle(self, head):    # 快慢指针, 空间复杂度O(1)
+        """快慢指针( 1. 先用快慢指针, 找到他们相遇点(如果存在环)
+                    2. 再重新从链表头开始, 以及步骤1的相遇点, 两个位置一起走, 再次相遇就是环的入口)        """
+        if not head or not head.next: return
+        slow = head             # 快慢指针
+        fast = head
 
-        node = head
-        while node is not None:
-            if node in visited:
-                return node
-            else:
-                visited.add(node)
-                node = node.next
+        start = head            # 重新开始
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
 
+            if slow == fast:    # 找到相遇点
+                while slow != start:
+                    slow = slow.next
+                    start = start.next
+                return slow
+        return None
+
+    def detectCycle1(self, head):    # 哈希, 空间复杂度O(n), 把遍历过的节点记录,当发现遍历的节点下一个节点遍历过, 返回它
+        lookup = set()
+        p = head
+        while p:
+            lookup.add(p)
+            if p.next in lookup:
+                return p.next
+            p = p.next
         return None

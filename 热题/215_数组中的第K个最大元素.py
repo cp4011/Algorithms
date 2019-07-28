@@ -18,36 +18,25 @@
 这样，堆顶的元素就是正确答案。
 像大小为 k 的堆中添加元素的时间复杂度为 O(logk)，我们将重复该操作 N 次，故总时间复杂度为O(Nlogk)。
 在 Python 的 heapq 库中有一个 nlargest 方法，具有同样的时间复杂度，能将代码简化到只有一行。
-本方法优化了时间复杂度，但需要 {O}(k)O(k) 的空间复杂度
+本方法优化了时间复杂度，但需要 O(k) 的空间复杂度
 """
-
-
-class Solution:
-    def findKthLargest(self, nums, k):
-        import heapq
-        return heapq.nlargest(k, nums)[-1]
 
 
 """o(nlgk)时间复杂度的分治方法
 当数组长度>2k,从中间切成两部分，分别求最大的k个元素列表，然后两路归并回来。
 当数组长度<=2K,用排序求最大的k个元素列表
-时间复杂度o(nlgk),当n>>k时比直接排序o(nlgn)好。
-"""
-
-
+时间复杂度o(nlgk),当n>>k时比直接排序o(nlgn)好。"""
 class Solution:
-    def findKthLargest(self, nums, k):
+    def findKthLargest(self, nums, k):    # o(nlgk)时间复杂度的分治方法
         def helper(num, k):
             if len(num) <= 2 * k:
                 num = sorted(num, key=lambda x: -x)
                 return num[:k]
             else:
-                # 如果数组长度大于2k，切成两半分别求最大的k个元素
-                m = len(num) // 2
+                m = len(num) // 2       # 如果数组长度大于2k，切成两半分别求最大的k个元素
                 L = helper(num[:m], k)
                 R = helper(num[m:], k)
-                # 两路归并
-                ans = []
+                ans = []                # 两路归并
                 l = 0
                 r = 0
                 while l + r < k:
@@ -58,6 +47,9 @@ class Solution:
                         ans.append(R[r])
                         r += 1
                 return ans
-
         fk = helper(nums, k)
         return fk[-1]
+
+    def findKthLargest1(self, nums, k):
+        import heapq
+        return heapq.nlargest(k, nums)[-1]

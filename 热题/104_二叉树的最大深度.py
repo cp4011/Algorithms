@@ -13,10 +13,6 @@
 
 class Solution:
     def maxDepth(self, root):       # 递归（官方有GIF动图）
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
         if root is None:
             return 0
         else:

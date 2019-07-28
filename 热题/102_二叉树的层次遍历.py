@@ -23,10 +23,6 @@ class TreeNode(object):
 
 class Solution(object):
     def levelOrder(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
         if not root:
             return []
         res, queue = [], [root]

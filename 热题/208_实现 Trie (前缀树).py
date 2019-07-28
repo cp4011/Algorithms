@@ -8,8 +8,7 @@ trie.startsWith("app"); // 返回 true
 trie.insert("app");
 trie.search("app");     // 返回 true
 说明:
-你可以假设所有的输入都是由小写字母 a-z 构成的。
-保证所有输入均为非空字符串。
+你可以假设所有的输入都是由小写字母 a-z 构成的。  保证所有输入均为非空字符串。
 """
 
 

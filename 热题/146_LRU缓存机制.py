@@ -16,20 +16,15 @@ cache.get(3);       // 返回  3
 cache.get(4);       // 返回  4
 """
 
-# LRU 缓存机制（官方）      有一种叫做有序字典的数据结构，综合了哈希表和链表，在 Python 中为 OrderedDict
+# LRU 最近最少使用（页面置换算法 ）     有一种叫做有序字典的数据结构，综合了哈希表和链表，在 Python中为 OrderedDict
 from collections import OrderedDict
 class LRUCache(OrderedDict):
     def __init__(self, capacity):
-        """
-        :type capacity: int
-        """
+        """        :type capacity: int        """
         self.capacity = capacity
 
     def get(self, key):
-        """
-        :type key: int
-        :rtype: int
-        """
+        """        :type key: int        :rtype: int        """
         if key not in self:
             return - 1
 
@@ -37,11 +32,7 @@ class LRUCache(OrderedDict):
         return self[key]
 
     def put(self, key, value):
-        """
-        :type key: int
-        :type value: int
-        :rtype: void
-        """
+        """        :type key: int        :type value: int        :rtype: void        """
         if key in self:
             self.move_to_end(key)       # move_to_end(指定一个key，把对应的key-value移到最后)
         self[key] = value
@@ -49,7 +40,6 @@ class LRUCache(OrderedDict):
             self.popitem(last=False)    # popitem(默认last=False，按照后进先出原则，删除最后加入的元素，返回key-value)，
                                         # last为False时，它从OrderedDict中删除第一个键值对并返回该键值对
                                         # pop(获取指定key的value，并在字典中删除)    k = dic.pop('key2')
-
 # LRUCache 对象会以如下语句构造和调用:
 # obj = LRUCache(capacity)
 # param_1 = obj.get(key)

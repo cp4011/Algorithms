@@ -30,8 +30,12 @@ class TreeNode:
 
 class Solution:
     def flatten(self, root: TreeNode) -> None:
-        """
-        Do not return anything, modify root in-place instead.
+        """ Do not return anything, modify root in-place instead.
+                1
+               / \
+              2   5
+             / \   \
+            3   4   6
         """
         while (root != None):
             if root.left != None:           # 节点2

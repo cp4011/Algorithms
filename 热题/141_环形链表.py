@@ -15,24 +15,24 @@
 """
 
 
-def hasCycle(head):     # 快慢指针, 空间复杂度O(1),好像两个人在一个操场上跑步,速度快的人一定会和速度慢的相遇(环)
-    slow = head
-    fast = head
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
-        if slow == fast:
-            return True
-    return False
+class Solution(object):     # 给定一个链表，判断链表中是否有环。
+    def hasCycle(self, head):     # 快慢指针, 空间复杂度O(1),好像两个人在一个操场上跑步,速度快的人一定会和速度慢的相遇(环)
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                return True
+        return False
 
-
-def hasCycle1(head):     # 哈希, 空间复杂度O(n),把遍历过的节点记录,当发现遍历的节点下一个节点遍历过, 说明有环
-    lookup = set()
-    p = head
-    while p:
-        lookup.add(p)
-        if p.next in lookup:
-            return True
-        p = p.next
-    return False
+    def hasCycle1(self, head):     # 哈希, 空间复杂度O(n),把遍历过的节点记录,当发现遍历的节点下一个节点遍历过, 说明有环
+        lookup = set()
+        p = head
+        while p:
+            lookup.add(p)
+            if p.next in lookup:
+                return True
+            p = p.next
+        return False
 

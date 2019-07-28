@@ -20,7 +20,7 @@
 """
 
 
-class Solution:     # 可运行多次买卖股票
+class Solution:     # 可允许多次买卖股票
     def maxProfit(self, prices):    # 输入每日股票价格数组
         if not prices or len(prices) == 1:
             return 0

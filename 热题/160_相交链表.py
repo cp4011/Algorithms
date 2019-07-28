@@ -25,10 +25,10 @@ intersectVal 必须为 0，而 skipA 和 skipB 可以是任意值。
 """
 
 
-"""方法二: 哈希表法
+"""哈希表法
 遍历链表 A 并将每个结点的地址/引用存储在哈希表中。然后检查链表 B 中的每一个结点 b_i 是否在哈希表中。若在，则 b_i  为相交结点。
 复杂度分析   时间复杂度 : O(m+n)      。   空间复杂度 : O(m)或 O(n)。 """
-class Solution(object):
+class Solution(object):     # 找到两个单链表相交的起始节点
     def getIntersectionNode(self, headA, headB):
         d=set()
         while headA:
@@ -38,6 +38,13 @@ class Solution(object):
             if headB in d:
                 return headB
             headB=headB.next
+
+    def getIntersectionNode1(self, headA, headB):
+        ha, hb = headA, headB
+        while ha != hb:     # 当 ha == hb 时跳出，返回即可
+            ha = ha.next if ha else headB
+            hb = hb.next if hb else headA
+        return ha
 
 
 """双指针法:
@@ -53,10 +60,6 @@ class Solution(object):
 4. 比较长的链表指针指向较短链表head时，长度差就消除了
 5. 如此，只需要将最短链表遍历两次即可找到位置
 """
+
+
 class Solution(object):
-    def getIntersectionNode(self, headA, headB):
-        ha, hb = headA, headB
-        while ha != hb:     # 当 ha == hb 时跳出，返回即可
-            ha = ha.next if ha else headB
-            hb = hb.next if hb else headA
-        return ha
