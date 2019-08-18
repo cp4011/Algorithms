@@ -5,7 +5,7 @@
 
 def func(m, n):
     """两数最大公约数"""
-    return m if n == 0 else func(n, m%n)
+    return m if n == 0 else func(n, m % n)
 
 # h = func(m, n)
 

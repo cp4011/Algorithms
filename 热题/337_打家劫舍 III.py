@@ -19,18 +19,22 @@
   / \   \
  1   3   1
 输出: 9
-解释: 小偷一晚能够盗取的最高金额 = 4 + 5 = 9.
-"""
+解释: 小偷一晚能够盗取的最高金额 = 4 + 5 = 9."""
+"""求本节点+孙子更深节点vs儿子节点+重孙更深的节点的比较。  虽然递归是自顶向下的，
+但是因为是不断的return，所以真正求值是从底向上的。用到了一个有两个元素的列表，分别保存了之前层的，不取节点和取节点的情况。
+然后遍历左右子树，求出当前节点取和不取能得到的值，再返回给上一层。注意这个里面的robcurr是当前节点能达到的最大值，所以
+最后返回结果的时候试试返回的root节点robcurr的值。"""
 
 
 class Solution(object):
-    def rob(self, root):  # 只需后续遍历：其中返回值是抢root的最大金额，不抢root的最大金额。递归访问后返回二者的最大值
-        def postorder(root):
-            if root == None:
-                return (0, 0)
-            l = postorder(root.left)
-            r = postorder(root.right)
-            return (root.val + l[1] + r[1], max(l[0], l[1]) + max(r[0], r[1]))
 
-        r = postorder(root)
-        return max(r[0], r[1])
+    def rob(self, root):
+        def dfs(root):              # 自顶向下（实质：不断return，自底向下返回）
+            if not root: return [0, 0]      # 下一层返回给上一层的：no robcurr不取节点， robcurr可取节点的最大值(包括不抢的情况）
+            robleft = dfs(root.left)
+            robright = dfs(root.right)
+            norobcurr = robleft[1] + robright[1]    # 这层不抢，就可抢它的左右子树
+            robcurr = max(root.val + robleft[0] + robright[0], norobcurr)   # 当前节点能达到的最大值
+            return [norobcurr, robcurr]     # 注意这个里面的robcurr是当前节点能达到的最大值
+
+        return dfs(root)[1]

@@ -60,6 +60,3 @@ class Solution(object):     # 找到两个单链表相交的起始节点
 4. 比较长的链表指针指向较短链表head时，长度差就消除了
 5. 如此，只需要将最短链表遍历两次即可找到位置
 """
-
-
-class Solution(object):
